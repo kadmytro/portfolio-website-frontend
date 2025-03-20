@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Carapostol Dumitru</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="./assets/icons/favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="content-wrapper">
+      <div id="content" class="hidden">
+        <div class="left">
+          <div id="aboutMe-container"></div>
+          <div id="social-media-container"></div>
+        </div>
+        <div class="right">
+          <section id="experience">
+            <h2>Experience</h2>
+            <div id="experience-content">
+              <div id="experience-names-wrapper">
+                <div id="experience-names"></div>
+              </div>
+              <div id="experience-descriptions"></div>
+            </div>
+          </section>
+          <section id="projects">
+            <h2>Projects</h2>
+            <div id="projects-list"></div>
+          </section>
+        </div>
+      </div>
+      <div id="loading-container">
+        <svg id="morphingSvg" width="150" height="100" viewBox="0 0 79.375 52.916667">
+          <defs>
+            <linearGradient id="glowGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="rgba(100, 255, 218, 0)" />
+              <stop offset="25%" stop-color="rgba(99,191,255, 0.2)" />
+              <stop offset="50%" stop-color="rgba(99,191,255, 1)" />
+              <stop offset="75%" stop-color="rgba(99,191,255, 0.2)" />
+              <stop offset="100%" stop-color="rgba(100, 255, 218, 0)" />
+            </linearGradient>
+            <mask id="mask">
+              <path id="maskC" fill="white" />
+              <path id="maskD" fill="white" />
+              <path id="maskSlash" fill="white" />
+            </mask>
+          </defs>
+          <g id="layer1">
+            <path d="M 44.629546,9.9257089 29.991274,42.632678 35.293162,42.701378 49.852147,9.9112689 Z" id="slash" />
+            <path
+              d="m 30.629618,9.9419383 -6.55715,-0.010157 c -4.221661,-0.1934637 -8.446006,-0.082622 -11.752835,2.4248447 -1.613878,1.148998 -2.6846933,2.54864 -3.4900931,4.070781 -0.7559657,1.634261 -1.300806,3.327901 -1.5581382,5.102403 -0.2521529,1.680626 -0.3968988,3.361253 -0.3071678,5.04188 0.00708,1.648589 0.2191143,3.013401 0.4232177,4.389192 0.3645333,2.407588 1.0932821,4.428198 2.1633541,6.086152 1.1681613,1.806941 2.8302193,3.261099 5.2319693,4.186906 2.892862,1.076738 6.482936,1.27279 10.204317,1.302978 l 7.676127,0.146576 0.0023,-5.143758 -8.360724,-0.102009 c -2.74573,0.09551 -5.397061,-0.254003 -7.835193,-1.6086 -1.823232,-1.254416 -3.079332,-2.949933 -3.712,-5.130343 -0.325246,-1.447899 -0.593827,-2.926707 -0.579706,-4.559715 0.04436,-1.516212 0.251896,-3.026797 0.74758,-4.527445 0.616685,-1.588618 1.24993,-3.171066 2.644279,-4.469965 1.661391,-1.521758 4.07332,-2.56648 8.325607,-2.441482 l 6.72914,-0.0061 z"
+              id="letterC"
+            />
+            <path
+              d="m 44.664696,9.8958355 7.82767,0.030777 c 3.198252,-0.1364888 6.273998,0.059617 8.972603,0.9514255 1.766806,0.639058 3.513438,1.42337 5.126366,3.170354 1.621481,1.684124 2.447363,3.719248 3.015209,5.868211 0.792452,3.495366 0.5773,4.33066 0.645786,5.914757 -0.0092,2.785136 -0.149472,5.498 -0.751224,7.426597 -0.678011,2.398303 -2.000304,4.960956 -4.70705,6.737299 -2.05621,1.406626 -3.727455,1.829452 -5.396037,2.245474 -1.357067,0.405742 -4.107383,0.254184 -6.494054,0.248085 l -6.369917,0.02083 0.07133,-4.720384 6.034838,-0.10474 c 2.089348,-0.01968 4.138475,0.106894 6.459978,-0.756991 2.172847,-0.97451 3.756005,-2.678091 4.716199,-5.151881 0.741704,-1.845842 1.310462,-3.818068 1.247706,-6.251785 -0.04222,-2.432123 -0.472631,-4.538658 -1.48061,-6.160784 C 62.557698,17.687176 61.249382,16.833164 59.884213,16.144544 57.727876,15.225443 55.320708,15.023 52.858715,14.977202 l -8.137738,-0.147875 z"
+              id="letterD"
+            />
+          </g>
+          <rect id="glowOverlay" x="-50%" y="50%" width="100%" height="100%" fill="url(#glowGradient)" mask="url(#mask)" />
+        </svg>
+        <div class="error-container hidden">
+          <div class="error-message">
+            <div class="icon error-icon"></div>
+            <h2>Oops!</h2>
+            <p>Something went wrong</p>
+            <button onclick="location.reload()">Retry</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="hidden">
+      <p>Designed & built by @kadmytro</p>
+    </footer>
+
+    <script src="./lib/snap.svg-min.js"></script>
+    <script src="env.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
