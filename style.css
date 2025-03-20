@@ -150,8 +150,8 @@ a.link span {
 
 a.link:hover span::before {
   background-color: rgb(var(--highlight-color));
-  top: -0.65rem;
-  right: -1.05rem;
+  top: -11px;
+  right: -17px;
   scale: 1.2;
 }
 
@@ -169,8 +169,8 @@ a.link span::before {
   height: 1rem;
   width: 1rem;
   position: absolute;
-  top: -0.5rem;
-  right: -0.85rem;
+  top: -8px;
+  right: -14px;
   transition: 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0.1s;
 }
 
