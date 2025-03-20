@@ -155,6 +155,10 @@ a.link:hover span::before {
   scale: 1.2;
 }
 
+.job-title a.link {
+  line-height: 2rem;
+}
+
 a.link span::before {
   content: "";
   -webkit-mask-size: contain; /* For Safari */
@@ -749,6 +753,7 @@ footer.hidden {
     position: static;
     width: unset;
     min-width: unset;
+    max-height: unset;
   }
 
   #aboutMe-container h1 {
