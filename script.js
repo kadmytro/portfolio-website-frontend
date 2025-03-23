@@ -459,5 +459,7 @@ function handleResize() {
   recalculateVariables(true);
 }
 
+window.addEventListener('resize', handleResize);
+
 logoAnimation.startAnimation();
 loadPage();

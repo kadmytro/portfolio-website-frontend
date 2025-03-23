@@ -266,8 +266,7 @@ a.link span::before {
 .content-wrapper {
   margin-inline: auto;
   display: flex;
-  padding-inline: 2rem;
-  max-width: 1280px;
+  width: 100%;
   min-height: 100vh;
   box-sizing: border-box;
   position: relative;
@@ -276,6 +275,7 @@ a.link span::before {
 
 #content {
   display: flex;
+  padding-inline: 2rem;
   gap: 5rem;
   opacity: 1;
   transition: opacity 0.5s cubic-bezier(1, 0.14, 0.66, 1.02);
@@ -304,23 +304,26 @@ a.link span::before {
 .right {
   display: flex;
   flex-direction: column;
-  padding-block: 5rem;
+  padding-top: 5rem;
+  padding-bottom: 2rem;
 }
 
 .left {
   justify-content: space-between;
   min-width: 450px;
-  width: 450px;
+  max-width: 550px;
   min-height: 500px;
   max-height: 100vh;
   box-sizing: border-box;
   position: sticky;
   top: 0;
+  flex: 0.5;
 }
 
 .right {
   flex: 1;
   gap: 5rem;
+  max-width: 670px;
 }
 
 /* ABOUT ME */
@@ -758,6 +761,7 @@ footer.hidden {
     width: unset;
     min-width: unset;
     max-height: unset;
+    flex: unset;
   }
 
   #aboutMe-container h1 {
@@ -769,18 +773,10 @@ footer.hidden {
   }
 }
 
-@media only screen and (max-height: 800px) {
-
-  .content-wrapper {
-    max-width: fit-content;
-  }
+@media only screen and (max-height: 860px) {
 
   .left, .right {
     padding-block: 2rem;
-  }
-
-  .left {
-    flex: 1;
   }
 }
 
