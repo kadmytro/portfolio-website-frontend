@@ -366,8 +366,8 @@ function startButtonAnimations() {
     button.style.setProperty("--mouse-x", `${initialX}px`);
     button.style.setProperty("--mouse-y", `${initialY}px`);
 
-    let velocityX = Math.random();
-    let velocityY = Math.random();
+    let velocityX = 0.5;
+    let velocityY = 0.1;
 
     const initialVelocityX = velocityX;
     const initialVelocityY = velocityY;
