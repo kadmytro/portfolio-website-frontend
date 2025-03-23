@@ -209,6 +209,7 @@ async function loadPage() {
         document.getElementById("content").classList.remove("hidden");
         document.querySelector("footer.hidden").classList.remove("hidden");
         document.body.classList.add("loaded");
+        startButtonAnimations();
       }, 400);
     });
   } catch (error) {
@@ -343,15 +344,86 @@ document.body.onmousemove = (e) => {
     card.style.setProperty("--mouse-x", `${x}px`);
     card.style.setProperty("--mouse-y", `${y}px`);
   }
-  for (const button of document.getElementsByClassName("button")) {
-    const rect = button.getBoundingClientRect(),
-      x = e.clientX - rect.left,
-      y = e.clientY - rect.top;
 
-    button.style.setProperty("--mouse-x", `${x}px`);
-    button.style.setProperty("--mouse-y", `${y}px`);
+  for (const button of document.getElementsByClassName("button")) {
+    const rect = button.getBoundingClientRect();
+    if (e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom) {
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      button.style.setProperty("--mouse-x", `${x}px`);
+      button.style.setProperty("--mouse-y", `${y}px`);
+    }
   }
 };
+
+// Animate CTA to attract attention
+function startButtonAnimations() {
+  const buttons = document.querySelectorAll(".button");
+  for (let button of buttons) {
+    let initialX = Math.random() * button.clientWidth;
+    let initialY = Math.random() * button.clientHeight;
+    button.style.setProperty("--mouse-x", `${initialX}px`);
+    button.style.setProperty("--mouse-y", `${initialY}px`);
+
+    let velocityX = Math.random();
+    let velocityY = Math.random();
+
+    const initialVelocityX = velocityX;
+    const initialVelocityY = velocityY;
+
+    function updateGradientPosition() {
+      if (button.dataset.mouseOver !== "true") {
+        const rect = button.getBoundingClientRect();
+        let x = parseFloat(button.style.getPropertyValue("--mouse-x"));
+        let y = parseFloat(button.style.getPropertyValue("--mouse-y"));
+
+        x += velocityX;
+        y += velocityY;
+
+        if (x < 0 || x > rect.width) {
+          velocityX *= -1;
+          velocityX = Math.sign(velocityX) * Math.abs(initialVelocityX);
+        }
+        if (y < 0 || y > rect.height) {
+          velocityY *= -1;
+          velocityY = Math.sign(velocityY) * Math.abs(initialVelocityY);
+        }
+
+        x = Math.max(0, Math.min(x, rect.width));
+        y = Math.max(0, Math.min(y, rect.height));
+
+        button.style.setProperty("--mouse-x", `${x}px`);
+        button.style.setProperty("--mouse-y", `${y}px`);
+      }
+
+      requestAnimationFrame(updateGradientPosition);
+    }
+
+    updateGradientPosition();
+
+    button.addEventListener("mouseenter", () => {
+      button.dataset.mouseOver = "true";
+    });
+
+    button.addEventListener("mouseleave", () => {
+      button.dataset.mouseOver = "false";
+      velocityX += Math.random() * 2;
+      velocityY += Math.random() * 2;
+    });
+
+    document.body.addEventListener("mousemove", (e) => {
+      if (button.dataset.mouseOver === "true") {
+        const rect = button.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        button.style.setProperty("--mouse-x", `${x}px`);
+        button.style.setProperty("--mouse-y", `${y}px`);
+      }
+    });
+  }
+}
 
 window.addEventListener("load", async function () {
   const hash = window.location.hash;
